@@ -1,0 +1,160 @@
+<!doctype html>
+<html ⚡ lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="This is the AMP Boilerplate.">
+  <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <!-- Import other AMP Extensions here -->
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+  <style amp-custom>
+    /* Add your styles here */
+    @font-face {
+      font-family: 'iconfont';
+      /* project id 1518344 */
+      src: url('//at.alicdn.com/t/font_1518344_ggfbghlxez8.eot');
+      src: url('//at.alicdn.com/t/font_1518344_ggfbghlxez8.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_1518344_ggfbghlxez8.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_1518344_ggfbghlxez8.woff') format('woff'),
+        url('//at.alicdn.com/t/font_1518344_ggfbghlxez8.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_1518344_ggfbghlxez8.svg#iconfont') format('svg');
+    }
+
+    .iconfont {
+      font-family: "iconfont";
+      font-size: 16px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0.2px;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      padding: 5px;
+      width: auto;
+      margin: 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .list-container [role="list"]{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .list-container__item {
+      width: 50%;
+    }
+  </style>
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <link rel="canonical" href=".">
+  <title><%=title%></title>
+  <meta name="description" content="<%=description %>">
+  <meta name="keywords" content="<%=keywords %>">
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Webpage",
+      "url": "https://www.sunnyson.com",
+      "name": "My Webpage",
+      "headline": "webpage title",
+      "description": "Here is the description",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.sunnyson.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Publisher",
+        "logo": {
+          "url": "https://www.sunnyson.com/logo-blue.svg",
+          "width": 175,
+          "height": 60,
+          "@type": "ImageObject"
+        }
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://www.sunnyson.com/leader.png",
+        "width": 1200,
+        "height": 630
+      }
+    }
+    </script>
+</head>
+
+<body>
+  <amp-analytics type="gtag" data-credentials="include">
+    <script type="application/json">
+          {
+            "vars" : {
+              "gtag_id": "UA-81146230-1",
+              "config" : {
+                "UA-81146230-1": {
+                  "groups": "default"
+                }
+              }
+            }
+          }
+          </script>
+  </amp-analytics>
+  
+  <amp-state id="data">
+    <script type="application/json">
+      {
+        "items": []
+      }
+    </script>
+  </amp-state>
+
+  <header>
+    <i class="iconfont" role="" tabindex="" on="tap:sidebar.toggle">&#xe6f5;</i>
+    <h1><%=title%></h1>
+    <i class="iconfont">&#xe613;</i>
+  </header>
+  <amp-sidebar id="sidebar" class="sample-sidebar" layout="nodisplay" side="left">
+    <nav>
+      <ul>
+        <li>Nav item 1</li>
+        <li>Nav item 2</li>
+      </ul>
+    </nav>
+    <ul>
+      <li>Nav item 3</li>
+      <li>Nav item 4</li>
+    </ul>
+  </amp-sidebar>
+  <div class="list-container">
+    <amp-list layout="fixed-height" height="100"
+        src="/getItems"
+        load-more-bookmark="nextUrl"
+        binding="no"
+        load-more="auto"
+        >
+      <template type="amp-mustache">
+        <div class="list-container__item">
+          <amp-img src="{{imgUrl}}"
+            width="100"
+            height="150"
+            layout="responsive"
+            alt="">
+          </amp-img>
+          <p>{{name}}</p>
+        </div>
+      </template>
+    </amp-list>
+  </div>
+</body>
+
+</html>

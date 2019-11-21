@@ -5,7 +5,7 @@ router.get('/', async (ctx, next) => {
     title: '假如我是一只狗',
     description: '假如我是一只狗的站点',
     keywords: '狗 google amp demo',
-    host: ctx.origin
+    host: ctx.hostname
   })
 })
 

@@ -12,6 +12,7 @@ const users = require('./routes/users')
 // error handler
 onerror(app)
 
+app.proxy = true;
 // middlewares
 app.use(bodyparser({
   enableTypes:['json', 'form', 'text']

@@ -4,12 +4,9 @@ router.get('/', async (ctx, next) => {
   await ctx.render('amp', {
     title: '假如我是一只狗',
     description: '假如我是一只狗的站点',
-    keywords: '狗 google amp demo'
+    keywords: '狗 google amp demo',
+    host: ctx.origin
   })
-})
-
-router.get('/getList', (ctx, next) => {
-  ctx
 })
 
 router.get('/getArticle', async (ctx, next) => {
@@ -74,6 +71,7 @@ router.get('/getItems',async (ctx, next) => {
     items,
     nextUrl: `/getItems?page=${++page}`
   }
+  console.log(ctx.origin);
   ctx.body = data
 })
 

@@ -1,11 +1,12 @@
 const router = require('koa-router')()
 
 router.get('/', async (ctx, next) => {
+  console.log(ctx);
   await ctx.render('amp', {
-    title: '假如我是一只狗',
-    description: '假如我是一只狗的站点',
-    keywords: '狗 google amp demo',
-    host: ctx.hostname
+    title: '假如我是一只狗的日记',
+    description: '假如我是一只狗的日记',
+    keywords: '假如我是一只狗 google amp demo',
+    host: ctx.host
   })
 })
 
@@ -53,7 +54,7 @@ router.get('/getItems',async (ctx, next) => {
       imgUrl: 'https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg',
       name: '巴哥'
     }, {
-      imgUrl: 'https://www.washingtonpost.com/resizer/kPkFQsQjvSIjfXG-mFXDEpxq6-4=/767x0/smart/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg',
+      imgUrl: 'https://pic4.zhimg.com/v2-c9bd374600759461c79628990767f661_1200x500.jpg',
       name: '二哈'
     }, {
       imgUrl: 'https://image.cnbcfm.com/api/v1/image/105992231-1561667465295gettyimages-521697453.jpeg?v=1561667497',
@@ -69,7 +70,7 @@ router.get('/getItems',async (ctx, next) => {
   let data ={
     page,
     items,
-    nextUrl: `/getItems?page=${++page}`
+    nextUrl: `//${ctx.host}/getItems?page=${++page}`
   }
   console.log(ctx.origin);
   ctx.body = data

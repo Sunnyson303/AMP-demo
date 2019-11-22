@@ -3,9 +3,9 @@ const router = require('koa-router')()
 router.get('/', async (ctx, next) => {
   console.log(ctx);
   await ctx.render('amp', {
-    title: '假如我是一只狗的日记',
-    description: '假如我是一只狗的日记',
-    keywords: '假如我是一只狗 google amp demo',
+    title: '假如我是一只狗的日记 | sunnyson303 amp',
+    description: '假如我是一只狗的日记, sunnyson303',
+    keywords: '假如我是一只狗 Google AMP 日记',
     host: ctx.host
   })
 })

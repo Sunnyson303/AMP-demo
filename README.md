@@ -9,5 +9,6 @@ amp demo
 * amp-selector
 * amp-mustache
 * amp-sidebar
+* amp-action
 
 <!-- action  -->
